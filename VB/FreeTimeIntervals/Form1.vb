@@ -30,7 +30,7 @@ Namespace FreeTimeIntervals
         Public Sub New()
             InitializeComponent()
         End Sub
-        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
             ' TODO: This line of code loads data into the 'xtraSchedulingDataSet1.Resources' table. You can move, or remove it, as needed.
             Me.resourcesTableAdapter.Fill(Me.xtraSchedulingDataSet1.Resources)
             ' TODO: This line of code loads data into the 'xtraSchedulingDataSet.Appointments' table. You can move, or remove it, as needed.
@@ -51,7 +51,7 @@ Namespace FreeTimeIntervals
                 text_Renamed = "Not found"
             Else
                 Dim clientFreeInterval As TimeInterval = TimeZoneHelper.ToClientTime(freeTime)
-                text_Renamed = "Free time interval with duration " & clientFreeInterval.Duration.ToString() & " is found! " & ControlChars.Lf & ControlChars.Cr & " It starts on " & clientFreeInterval.Start.Date.ToShortDateString() & " at " & clientFreeInterval.Start.TimeOfDay.ToString() & "."
+                text_Renamed = "Free time interval with duration " & clientFreeInterval.Duration.ToString() & " is found! " & vbLf & vbCr & " It starts on " & clientFreeInterval.Start.Date.ToShortDateString() & " at " & clientFreeInterval.Start.TimeOfDay.ToString() & "."
                 schedulerControl1.ActiveView.SetSelection(clientFreeInterval, ResourceEmpty.Resource)
             End If
             MessageBox.Show(text_Renamed, "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information)

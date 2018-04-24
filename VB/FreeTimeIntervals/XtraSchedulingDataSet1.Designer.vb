@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace FreeTimeIntervals
 
@@ -44,7 +44,7 @@ Namespace FreeTimeIntervals
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -108,7 +108,7 @@ Namespace FreeTimeIntervals
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As XtraSchedulingDataSet1 = (DirectCast(MyBase.Clone(), XtraSchedulingDataSet1))
+            Dim cln As XtraSchedulingDataSet1 = (CType(MyBase.Clone(), XtraSchedulingDataSet1))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -162,7 +162,7 @@ Namespace FreeTimeIntervals
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub InitVars(ByVal initTable As Boolean)
-            Me.tableResources = (DirectCast(MyBase.Tables("Resources"), ResourcesDataTable))
+            Me.tableResources = (CType(MyBase.Tables("Resources"), ResourcesDataTable))
             If (initTable = True) Then
                 If (Me.tableResources IsNot Nothing) Then
                     Me.tableResources.InitVars()
@@ -211,7 +211,7 @@ Namespace FreeTimeIntervals
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -343,7 +343,7 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As ResourcesRow
                 Get
-                    Return (DirectCast(Me.Rows(index), ResourcesRow))
+                    Return (CType(Me.Rows(index), ResourcesRow))
                 End Get
             End Property
 
@@ -366,7 +366,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddResourcesRow(ByVal ResourceID As Integer, ByVal ResourceName As String, ByVal Color As Integer, ByVal Image() As Byte, ByVal CustomField1 As String) As ResourcesRow
-                Dim rowResourcesRow As ResourcesRow = (DirectCast(Me.NewRow(), ResourcesRow))
+                Dim rowResourcesRow As ResourcesRow = (CType(Me.NewRow(), ResourcesRow))
                 Dim columnValuesArray() As Object = { Nothing, ResourceID, ResourceName, Color, Image, CustomField1}
                 rowResourcesRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowResourcesRow)
@@ -375,7 +375,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByUniqueID(ByVal UniqueID As Integer) As ResourcesRow
-                Return (DirectCast(Me.Rows.Find(New Object() { UniqueID}), ResourcesRow))
+                Return (CType(Me.Rows.Find(New Object() { UniqueID}), ResourcesRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -385,7 +385,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As ResourcesDataTable = (DirectCast(MyBase.Clone(), ResourcesDataTable))
+                Dim cln As ResourcesDataTable = (CType(MyBase.Clone(), ResourcesDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -431,7 +431,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewResourcesRow() As ResourcesRow
-                Return (DirectCast(Me.NewRow(), ResourcesRow))
+                Return (CType(Me.NewRow(), ResourcesRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -447,25 +447,25 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent ResourcesRowChanged(Me, New ResourcesRowChangeEvent((DirectCast(e.Row, ResourcesRow)), e.Action))
+                RaiseEvent ResourcesRowChanged(Me, New ResourcesRowChangeEvent((CType(e.Row, ResourcesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent ResourcesRowChanging(Me, New ResourcesRowChangeEvent((DirectCast(e.Row, ResourcesRow)), e.Action))
+                RaiseEvent ResourcesRowChanging(Me, New ResourcesRowChangeEvent((CType(e.Row, ResourcesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent ResourcesRowDeleted(Me, New ResourcesRowChangeEvent((DirectCast(e.Row, ResourcesRow)), e.Action))
+                RaiseEvent ResourcesRowDeleted(Me, New ResourcesRowChangeEvent((CType(e.Row, ResourcesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent ResourcesRowDeleting(Me, New ResourcesRowChangeEvent((DirectCast(e.Row, ResourcesRow)), e.Action))
+                RaiseEvent ResourcesRowDeleting(Me, New ResourcesRowChangeEvent((CType(e.Row, ResourcesRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -507,7 +507,7 @@ Namespace FreeTimeIntervals
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -546,13 +546,13 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
                 MyBase.New(rb)
-                Me.tableResources = (DirectCast(Me.Table, ResourcesDataTable))
+                Me.tableResources = (CType(Me.Table, ResourcesDataTable))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property UniqueID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableResources.UniqueIDColumn), Integer))
+                    Return (CInt((Me(Me.tableResources.UniqueIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableResources.UniqueIDColumn) = value
@@ -562,7 +562,7 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property ResourceID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableResources.ResourceIDColumn), Integer))
+                    Return (CInt((Me(Me.tableResources.ResourceIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableResources.ResourceIDColumn) = value
@@ -573,7 +573,7 @@ Namespace FreeTimeIntervals
             Public Property ResourceName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableResources.ResourceNameColumn), String))
+                        Return (CStr(Me(Me.tableResources.ResourceNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ResourceName' in table 'Resources' is DBNull.", e)
                     End Try
@@ -587,7 +587,7 @@ Namespace FreeTimeIntervals
             Public Property Color() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableResources.ColorColumn), Integer))
+                        Return (CInt((Me(Me.tableResources.ColorColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Color' in table 'Resources' is DBNull.", e)
                     End Try
@@ -601,7 +601,7 @@ Namespace FreeTimeIntervals
             Public Property Image() As Byte()
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableResources.ImageColumn), Byte()))
+                        Return (CType(Me(Me.tableResources.ImageColumn), Byte()))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Image' in table 'Resources' is DBNull.", e)
                     End Try
@@ -615,7 +615,7 @@ Namespace FreeTimeIntervals
             Public Property CustomField1() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableResources.CustomField1Column), String))
+                        Return (CStr(Me(Me.tableResources.CustomField1Column)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CustomField1' in table 'Resources' is DBNull.", e)
                     End Try
@@ -806,8 +806,8 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Color", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Color", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Resources] ([ResourceID], [ResourceName], [Color], [Image], [CustomField1]) VALUES (@ResourceID, @ResourceName, @Color, @Image, @CustomField1);" & ControlChars.CrLf & _
-"SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resources WHERE (UniqueID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Resources] ([ResourceID], [ResourceName], [Color], [Image], [CustomField1]) VALUES (@ResourceID, @ResourceName, @Color, @Image, @CustomField1);
+SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resources WHERE (UniqueID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -816,8 +816,8 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomField1", Global.System.Data.SqlDbType.NText, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomField1", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Resources] SET [ResourceID] = @ResourceID, [ResourceName] = @ResourceName, [Color] = @Color, [Image] = @Image, [CustomField1] = @CustomField1 WHERE (([UniqueID] = @Original_UniqueID) AND ([ResourceID] = @Original_ResourceID) AND ((@IsNull_ResourceName = 1 AND [ResourceName] IS NULL) OR ([ResourceName] = @Original_ResourceName)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)));" & ControlChars.CrLf & _
-"SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resources WHERE (UniqueID = @UniqueID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Resources] SET [ResourceID] = @ResourceID, [ResourceName] = @ResourceName, [Color] = @Color, [Image] = @Image, [CustomField1] = @CustomField1 WHERE (([UniqueID] = @Original_UniqueID) AND ([ResourceID] = @Original_ResourceID) AND ((@IsNull_ResourceName = 1 AND [ResourceName] IS NULL) OR ([ResourceName] = @Original_ResourceName)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)));
+SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resources WHERE (UniqueID = @UniqueID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceID", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -891,17 +891,17 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
             Me.Adapter.DeleteCommand.Parameters(0).Value = (CInt(Original_UniqueID))
             Me.Adapter.DeleteCommand.Parameters(1).Value = (CInt(Original_ResourceID))
             If (Original_ResourceName Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(2).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(2).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(3).Value = (CStr(Original_ResourceName))
             End If
             If (Original_Color.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = (DirectCast(0, Object))
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (CInt((Original_Color.Value)))
+                Me.Adapter.DeleteCommand.Parameters(4).Value = (CObj(0))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CInt(Original_Color.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(4).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -927,7 +927,7 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = (CStr(ResourceName))
             End If
             If (Color.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = (CInt((Color.Value)))
+                Me.Adapter.InsertCommand.Parameters(2).Value = (CInt(Color.Value))
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -964,7 +964,7 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
                 Me.Adapter.UpdateCommand.Parameters(1).Value = (CStr(ResourceName))
             End If
             If (Color.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = (CInt((Color.Value)))
+                Me.Adapter.UpdateCommand.Parameters(2).Value = (CInt(Color.Value))
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
@@ -981,17 +981,17 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
             Me.Adapter.UpdateCommand.Parameters(5).Value = (CInt(Original_UniqueID))
             Me.Adapter.UpdateCommand.Parameters(6).Value = (CInt(Original_ResourceID))
             If (Original_ResourceName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(7).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(7).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(8).Value = (CStr(Original_ResourceName))
             End If
             If (Original_Color.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = (DirectCast(0, Object))
-                Me.Adapter.UpdateCommand.Parameters(10).Value = (CInt((Original_Color.Value)))
+                Me.Adapter.UpdateCommand.Parameters(9).Value = (CObj(0))
+                Me.Adapter.UpdateCommand.Parameters(10).Value = (CInt(Original_Color.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(9).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(11).Value = (CInt(UniqueID))
@@ -1016,4 +1016,4 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSet1TableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591

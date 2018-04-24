@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace FreeTimeIntervals
 
@@ -44,7 +44,7 @@ Namespace FreeTimeIntervals
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -108,7 +108,7 @@ Namespace FreeTimeIntervals
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As XtraSchedulingDataSet = (DirectCast(MyBase.Clone(), XtraSchedulingDataSet))
+            Dim cln As XtraSchedulingDataSet = (CType(MyBase.Clone(), XtraSchedulingDataSet))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -162,7 +162,7 @@ Namespace FreeTimeIntervals
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub InitVars(ByVal initTable As Boolean)
-            Me.tableAppointments = (DirectCast(MyBase.Tables("Appointments"), AppointmentsDataTable))
+            Me.tableAppointments = (CType(MyBase.Tables("Appointments"), AppointmentsDataTable))
             If (initTable = True) Then
                 If (Me.tableAppointments IsNot Nothing) Then
                     Me.tableAppointments.InitVars()
@@ -211,7 +211,7 @@ Namespace FreeTimeIntervals
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -415,7 +415,7 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As AppointmentsRow
                 Get
-                    Return (DirectCast(Me.Rows(index), AppointmentsRow))
+                    Return (CType(Me.Rows(index), AppointmentsRow))
                 End Get
             End Property
 
@@ -438,7 +438,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddAppointmentsRow(ByVal Type As Integer, ByVal StartDate As Date, ByVal EndDate As Date, ByVal AllDay As Boolean, ByVal Subject As String, ByVal Location As String, ByVal Description As String, ByVal Status As Integer, ByVal Label As Integer, ByVal ResourceID As Integer, ByVal ReminderInfo As String, ByVal RecurrenceInfo As String, ByVal CustomField1 As String) As AppointmentsRow
-                Dim rowAppointmentsRow As AppointmentsRow = (DirectCast(Me.NewRow(), AppointmentsRow))
+                Dim rowAppointmentsRow As AppointmentsRow = (CType(Me.NewRow(), AppointmentsRow))
                 Dim columnValuesArray() As Object = { Nothing, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ReminderInfo, RecurrenceInfo, CustomField1}
                 rowAppointmentsRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowAppointmentsRow)
@@ -447,7 +447,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByUniqueID(ByVal UniqueID As Integer) As AppointmentsRow
-                Return (DirectCast(Me.Rows.Find(New Object() { UniqueID}), AppointmentsRow))
+                Return (CType(Me.Rows.Find(New Object() { UniqueID}), AppointmentsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -457,7 +457,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As AppointmentsDataTable = (DirectCast(MyBase.Clone(), AppointmentsDataTable))
+                Dim cln As AppointmentsDataTable = (CType(MyBase.Clone(), AppointmentsDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -530,7 +530,7 @@ Namespace FreeTimeIntervals
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewAppointmentsRow() As AppointmentsRow
-                Return (DirectCast(Me.NewRow(), AppointmentsRow))
+                Return (CType(Me.NewRow(), AppointmentsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -546,25 +546,25 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent AppointmentsRowChanged(Me, New AppointmentsRowChangeEvent((DirectCast(e.Row, AppointmentsRow)), e.Action))
+                RaiseEvent AppointmentsRowChanged(Me, New AppointmentsRowChangeEvent((CType(e.Row, AppointmentsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent AppointmentsRowChanging(Me, New AppointmentsRowChangeEvent((DirectCast(e.Row, AppointmentsRow)), e.Action))
+                RaiseEvent AppointmentsRowChanging(Me, New AppointmentsRowChangeEvent((CType(e.Row, AppointmentsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent AppointmentsRowDeleted(Me, New AppointmentsRowChangeEvent((DirectCast(e.Row, AppointmentsRow)), e.Action))
+                RaiseEvent AppointmentsRowDeleted(Me, New AppointmentsRowChangeEvent((CType(e.Row, AppointmentsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent AppointmentsRowDeleting(Me, New AppointmentsRowChangeEvent((DirectCast(e.Row, AppointmentsRow)), e.Action))
+                RaiseEvent AppointmentsRowDeleting(Me, New AppointmentsRowChangeEvent((CType(e.Row, AppointmentsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -606,7 +606,7 @@ Namespace FreeTimeIntervals
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -645,13 +645,13 @@ Namespace FreeTimeIntervals
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
                 MyBase.New(rb)
-                Me.tableAppointments = (DirectCast(Me.Table, AppointmentsDataTable))
+                Me.tableAppointments = (CType(Me.Table, AppointmentsDataTable))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property UniqueID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableAppointments.UniqueIDColumn), Integer))
+                    Return (CInt((Me(Me.tableAppointments.UniqueIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableAppointments.UniqueIDColumn) = value
@@ -662,7 +662,7 @@ Namespace FreeTimeIntervals
             Public Property Type() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.TypeColumn), Integer))
+                        Return (CInt((Me(Me.tableAppointments.TypeColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Type' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -676,7 +676,7 @@ Namespace FreeTimeIntervals
             Public Property StartDate() As Date
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.StartDateColumn), Global.System.DateTime))
+                        Return (CDate(Me(Me.tableAppointments.StartDateColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'StartDate' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -690,7 +690,7 @@ Namespace FreeTimeIntervals
             Public Property EndDate() As Date
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.EndDateColumn), Global.System.DateTime))
+                        Return (CDate(Me(Me.tableAppointments.EndDateColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'EndDate' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -704,7 +704,7 @@ Namespace FreeTimeIntervals
             Public Property AllDay() As Boolean
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.AllDayColumn), Boolean))
+                        Return (CBool(Me(Me.tableAppointments.AllDayColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'AllDay' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -718,7 +718,7 @@ Namespace FreeTimeIntervals
             Public Property Subject() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.SubjectColumn), String))
+                        Return (CStr(Me(Me.tableAppointments.SubjectColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Subject' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -732,7 +732,7 @@ Namespace FreeTimeIntervals
             Public Property Location() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.LocationColumn), String))
+                        Return (CStr(Me(Me.tableAppointments.LocationColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Location' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -746,7 +746,7 @@ Namespace FreeTimeIntervals
             Public Property Description() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.DescriptionColumn), String))
+                        Return (CStr(Me(Me.tableAppointments.DescriptionColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Description' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -760,7 +760,7 @@ Namespace FreeTimeIntervals
             Public Property Status() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.StatusColumn), Integer))
+                        Return (CInt((Me(Me.tableAppointments.StatusColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Status' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -774,7 +774,7 @@ Namespace FreeTimeIntervals
             Public Property Label() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.LabelColumn), Integer))
+                        Return (CInt((Me(Me.tableAppointments.LabelColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Label' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -788,7 +788,7 @@ Namespace FreeTimeIntervals
             Public Property ResourceID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.ResourceIDColumn), Integer))
+                        Return (CInt((Me(Me.tableAppointments.ResourceIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ResourceID' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -802,7 +802,7 @@ Namespace FreeTimeIntervals
             Public Property ReminderInfo() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.ReminderInfoColumn), String))
+                        Return (CStr(Me(Me.tableAppointments.ReminderInfoColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ReminderInfo' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -816,7 +816,7 @@ Namespace FreeTimeIntervals
             Public Property RecurrenceInfo() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.RecurrenceInfoColumn), String))
+                        Return (CStr(Me(Me.tableAppointments.RecurrenceInfoColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'RecurrenceInfo' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -830,7 +830,7 @@ Namespace FreeTimeIntervals
             Public Property CustomField1() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableAppointments.CustomField1Column), String))
+                        Return (CStr(Me(Me.tableAppointments.CustomField1Column)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CustomField1' in table 'Appointments' is DBNull.", e)
                     End Try
@@ -1132,8 +1132,8 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResourceID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Appointments] ([Type], [StartDate], [EndDate], [AllDay], [Subject], [Location], [Description], [Status], [Label], [ResourceID], [ReminderInfo], [RecurrenceInfo], [CustomField1]) VALUES (@Type, @StartDate, @EndDate, @AllDay, @Subject, @Location, @Description, @Status, @Label, @ResourceID, @ReminderInfo, @RecurrenceInfo, @CustomField1);" & ControlChars.CrLf & _
-"SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ReminderInfo, RecurrenceInfo, CustomField1 FROM Appointments WHERE (UniqueID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Appointments] ([Type], [StartDate], [EndDate], [AllDay], [Subject], [Location], [Description], [Status], [Label], [ResourceID], [ReminderInfo], [RecurrenceInfo], [CustomField1]) VALUES (@Type, @StartDate, @EndDate, @AllDay, @Subject, @Location, @Description, @Status, @Label, @ResourceID, @ReminderInfo, @RecurrenceInfo, @CustomField1);
+SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ReminderInfo, RecurrenceInfo, CustomField1 FROM Appointments WHERE (UniqueID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Type", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StartDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StartDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -1150,8 +1150,8 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomField1", Global.System.Data.SqlDbType.NText, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomField1", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Appointments] SET [Type] = @Type, [StartDate] = @StartDate, [EndDate] = @EndDate, [AllDay] = @AllDay, [Subject] = @Subject, [Location] = @Location, [Description] = @Description, [Status] = @Status, [Label] = @Label, [ResourceID] = @ResourceID, [ReminderInfo] = @ReminderInfo, [RecurrenceInfo] = @RecurrenceInfo, [CustomField1] = @CustomField1 WHERE (([UniqueID] = @Original_UniqueID) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_EndDate = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_EndDate)) AND ((@IsNull_AllDay = 1 AND [AllDay] IS NULL) OR ([AllDay] = @Original_AllDay)) AND ((@IsNull_Subject = 1 AND [Subject] IS NULL) OR ([Subject] = @Original_Subject)) AND ((@IsNull_Location = 1 AND [Location] IS NULL) OR ([Location] = @Original_Location)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Label = 1 AND [Label] IS NULL) OR ([Label] = @Original_Label)) AND ((@IsNull_ResourceID = 1 AND [ResourceID] IS NULL) OR ([ResourceID] = @Original_ResourceID)));" & ControlChars.CrLf & _
-"SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ReminderInfo, RecurrenceInfo, CustomField1 FROM Appointments WHERE (UniqueID = @UniqueID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Appointments] SET [Type] = @Type, [StartDate] = @StartDate, [EndDate] = @EndDate, [AllDay] = @AllDay, [Subject] = @Subject, [Location] = @Location, [Description] = @Description, [Status] = @Status, [Label] = @Label, [ResourceID] = @ResourceID, [ReminderInfo] = @ReminderInfo, [RecurrenceInfo] = @RecurrenceInfo, [CustomField1] = @CustomField1 WHERE (([UniqueID] = @Original_UniqueID) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_EndDate = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_EndDate)) AND ((@IsNull_AllDay = 1 AND [AllDay] IS NULL) OR ([AllDay] = @Original_AllDay)) AND ((@IsNull_Subject = 1 AND [Subject] IS NULL) OR ([Subject] = @Original_Subject)) AND ((@IsNull_Location = 1 AND [Location] IS NULL) OR ([Location] = @Original_Location)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Label = 1 AND [Label] IS NULL) OR ([Label] = @Original_Label)) AND ((@IsNull_ResourceID = 1 AND [ResourceID] IS NULL) OR ([ResourceID] = @Original_ResourceID)));
+SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ReminderInfo, RecurrenceInfo, CustomField1 FROM Appointments WHERE (UniqueID = @UniqueID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Type", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Type", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StartDate", Global.System.Data.SqlDbType.SmallDateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StartDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -1245,66 +1245,66 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
         Public Overridable Function Delete(ByVal Original_UniqueID As Integer, ByVal Original_Type? As Integer, ByVal Original_StartDate? As Global.System.DateTime, ByVal Original_EndDate? As Global.System.DateTime, ByVal Original_AllDay? As Boolean, ByVal Original_Subject As String, ByVal Original_Location As String, ByVal Original_Status? As Integer, ByVal Original_Label? As Integer, ByVal Original_ResourceID? As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = (CInt(Original_UniqueID))
             If (Original_Type.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(0, Object))
-                Me.Adapter.DeleteCommand.Parameters(2).Value = (CInt((Original_Type.Value)))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(0))
+                Me.Adapter.DeleteCommand.Parameters(2).Value = (CInt(Original_Type.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(1).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Original_StartDate.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = (CDate(Original_StartDate.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(3).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Original_EndDate.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = (CDate(Original_EndDate.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(5).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
             If (Original_AllDay.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = (CBool(Original_AllDay.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(7).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_Subject Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(9).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(9).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(10).Value = (CStr(Original_Subject))
             End If
             If (Original_Location Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(11).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = (DirectCast(0, Object))
+                Me.Adapter.DeleteCommand.Parameters(11).Value = (CObj(0))
                 Me.Adapter.DeleteCommand.Parameters(12).Value = (CStr(Original_Location))
             End If
             If (Original_Status.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = (DirectCast(0, Object))
-                Me.Adapter.DeleteCommand.Parameters(14).Value = (CInt((Original_Status.Value)))
+                Me.Adapter.DeleteCommand.Parameters(13).Value = (CObj(0))
+                Me.Adapter.DeleteCommand.Parameters(14).Value = (CInt(Original_Status.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(13).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Original_Label.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = (DirectCast(0, Object))
-                Me.Adapter.DeleteCommand.Parameters(16).Value = (CInt((Original_Label.Value)))
+                Me.Adapter.DeleteCommand.Parameters(15).Value = (CObj(0))
+                Me.Adapter.DeleteCommand.Parameters(16).Value = (CInt(Original_Label.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(15).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (Original_ResourceID.HasValue = True) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = (DirectCast(0, Object))
-                Me.Adapter.DeleteCommand.Parameters(18).Value = (CInt((Original_ResourceID.Value)))
+                Me.Adapter.DeleteCommand.Parameters(17).Value = (CObj(0))
+                Me.Adapter.DeleteCommand.Parameters(18).Value = (CInt(Original_ResourceID.Value))
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = (DirectCast(1, Object))
+                Me.Adapter.DeleteCommand.Parameters(17).Value = (CObj(1))
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
@@ -1324,7 +1324,7 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
         Public Overridable Function Insert(ByVal Type? As Integer, ByVal StartDate? As Global.System.DateTime, ByVal EndDate? As Global.System.DateTime, ByVal AllDay? As Boolean, ByVal Subject As String, ByVal Location As String, ByVal Description As String, ByVal Status? As Integer, ByVal Label? As Integer, ByVal ResourceID? As Integer, ByVal ReminderInfo As String, ByVal RecurrenceInfo As String, ByVal CustomField1 As String) As Integer
             If (Type.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = (CInt((Type.Value)))
+                Me.Adapter.InsertCommand.Parameters(0).Value = (CInt(Type.Value))
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -1359,17 +1359,17 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(6).Value = (CStr(Description))
             End If
             If (Status.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = (CInt((Status.Value)))
+                Me.Adapter.InsertCommand.Parameters(7).Value = (CInt(Status.Value))
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (Label.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = (CInt((Label.Value)))
+                Me.Adapter.InsertCommand.Parameters(8).Value = (CInt(Label.Value))
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (ResourceID.HasValue = True) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = (CInt((ResourceID.Value)))
+                Me.Adapter.InsertCommand.Parameters(9).Value = (CInt(ResourceID.Value))
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
@@ -1405,7 +1405,7 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
         Public Overridable Function Update(ByVal Type? As Integer, ByVal StartDate? As Global.System.DateTime, ByVal EndDate? As Global.System.DateTime, ByVal AllDay? As Boolean, ByVal Subject As String, ByVal Location As String, ByVal Description As String, ByVal Status? As Integer, ByVal Label? As Integer, ByVal ResourceID? As Integer, ByVal ReminderInfo As String, ByVal RecurrenceInfo As String, ByVal CustomField1 As String, ByVal Original_UniqueID As Integer, ByVal Original_Type? As Integer, ByVal Original_StartDate? As Global.System.DateTime, ByVal Original_EndDate? As Global.System.DateTime, ByVal Original_AllDay? As Boolean, ByVal Original_Subject As String, ByVal Original_Location As String, ByVal Original_Status? As Integer, ByVal Original_Label? As Integer, ByVal Original_ResourceID? As Integer, ByVal UniqueID As Integer) As Integer
             If (Type.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = (CInt((Type.Value)))
+                Me.Adapter.UpdateCommand.Parameters(0).Value = (CInt(Type.Value))
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
@@ -1440,17 +1440,17 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(6).Value = (CStr(Description))
             End If
             If (Status.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = (CInt((Status.Value)))
+                Me.Adapter.UpdateCommand.Parameters(7).Value = (CInt(Status.Value))
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (Label.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = (CInt((Label.Value)))
+                Me.Adapter.UpdateCommand.Parameters(8).Value = (CInt(Label.Value))
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (ResourceID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = (CInt((ResourceID.Value)))
+                Me.Adapter.UpdateCommand.Parameters(9).Value = (CInt(ResourceID.Value))
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
@@ -1471,66 +1471,66 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(13).Value = (CInt(Original_UniqueID))
             If (Original_Type.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = (DirectCast(0, Object))
-                Me.Adapter.UpdateCommand.Parameters(15).Value = (CInt((Original_Type.Value)))
+                Me.Adapter.UpdateCommand.Parameters(14).Value = (CObj(0))
+                Me.Adapter.UpdateCommand.Parameters(15).Value = (CInt(Original_Type.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(14).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_StartDate.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(16).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(17).Value = (CDate(Original_StartDate.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(16).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (Original_EndDate.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(18).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(19).Value = (CDate(Original_EndDate.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(18).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
             If (Original_AllDay.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(20).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(21).Value = (CBool(Original_AllDay.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(20).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
             If (Original_Subject Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(22).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(22).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(23).Value = (CStr(Original_Subject))
             End If
             If (Original_Location Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(24).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = (DirectCast(0, Object))
+                Me.Adapter.UpdateCommand.Parameters(24).Value = (CObj(0))
                 Me.Adapter.UpdateCommand.Parameters(25).Value = (CStr(Original_Location))
             End If
             If (Original_Status.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = (DirectCast(0, Object))
-                Me.Adapter.UpdateCommand.Parameters(27).Value = (CInt((Original_Status.Value)))
+                Me.Adapter.UpdateCommand.Parameters(26).Value = (CObj(0))
+                Me.Adapter.UpdateCommand.Parameters(27).Value = (CInt(Original_Status.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(26).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
             If (Original_Label.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = (DirectCast(0, Object))
-                Me.Adapter.UpdateCommand.Parameters(29).Value = (CInt((Original_Label.Value)))
+                Me.Adapter.UpdateCommand.Parameters(28).Value = (CObj(0))
+                Me.Adapter.UpdateCommand.Parameters(29).Value = (CInt(Original_Label.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(28).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
             If (Original_ResourceID.HasValue = True) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = (DirectCast(0, Object))
-                Me.Adapter.UpdateCommand.Parameters(31).Value = (CInt((Original_ResourceID.Value)))
+                Me.Adapter.UpdateCommand.Parameters(30).Value = (CObj(0))
+                Me.Adapter.UpdateCommand.Parameters(31).Value = (CInt(Original_ResourceID.Value))
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = (DirectCast(1, Object))
+                Me.Adapter.UpdateCommand.Parameters(30).Value = (CObj(1))
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(32).Value = (CInt(UniqueID))
@@ -1555,4 +1555,4 @@ Namespace FreeTimeIntervals.XtraSchedulingDataSetTableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591
